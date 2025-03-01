@@ -8,7 +8,9 @@ Run evaluation:
 ./evaluate.sh
 ```
 
-Results:
+## Results
+
+### GSM8K
 
 |Model| Solve Rate |
 |-----|------------|
