@@ -15,7 +15,7 @@ class Qwen:
 
     def inference(self, p):
         messages = [
-            {"role": "system", "content": "You are Qwen, created by Alibaba Cloud. You are a helpful assistant."},
+            {"role": "system", "content": "You are Qwen, created by Alibaba Cloud. You are a helpful assistant to solve math problems. Your final answer should be wrapped within \\boxed{}"},
             {"role": "user", "content": p},
         ]
         text = self.tokenizer.apply_chat_template(
@@ -41,7 +41,7 @@ class Qwen:
             tokenize=False,
             add_generation_prompt=True,
         )
-        model_inputs_batch = self.tokenizer(text_batch, return_tensors="pt", padding=True).to(model.device)
+        model_inputs_batch = self.tokenizer(text_batch, return_tensors="pt", padding=True).to(self.model.device)
         generated_ids_batch = self.model.generate(
             **model_inputs_batch,
             max_new_tokens=512,
