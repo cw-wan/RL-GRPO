@@ -6,7 +6,7 @@ def _load_dataset(name, subset, split, ratio):
     return load_dataset(name, subset, split=f"{split}[:{ratio}%]")
 
 
-def _parse_answer(ans):
+def _batch_parse_answers(ans):
     pattern = r"\d+(?:/\d+|\.\d+|(?:,\d+)+)?"  # Matches integers, decimals, and fractions
 
     results = []

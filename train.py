@@ -1,6 +1,6 @@
 from trl import GRPOConfig, GRPOTrainer
 import json
-from utils import _load_dataset, _parse_answer
+from utils import _load_dataset, _batch_parse_answers
 
 MODELS = {
     "Qwen2.5-0.5B-Instruct": "Qwen/Qwen2.5-0.5B-Instruct",
@@ -23,12 +23,12 @@ train_ratio = config["train_ratio"]
 
 dataset = DATASETS[dataset_name](train_ratio)
 dataset = CONVERTION[dataset_name](dataset)
-dataset = dataset.map(lambda example: {"ground_truth": _parse_answer([example["completion"]])[0]})
+dataset = dataset.map(lambda example: {"ground_truth": _batch_parse_answers([example["completion"]])[0]})
 
 print(dataset[0])
 
 def reward_func(completions, ground_truth, **kwargs):
-    pred, gt = _parse_answer(completions), ground_truth
+    pred, gt = _batch_parse_answers(completions), ground_truth
     return [1.0 if p == g else 0.0 for p, g in zip(pred, gt)]
 
 

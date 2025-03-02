@@ -2,7 +2,7 @@ import argparse
 from tqdm import tqdm
 from models import *
 
-from utils import _load_dataset, _parse_answer
+from utils import _load_dataset, _batch_parse_answers
 
 MODELS = {
     "Qwen2.5-0.5B-Instruct": Qwen("Qwen/Qwen2.5-0.5B-Instruct"),
@@ -36,9 +36,9 @@ if __name__ == "__main__":
 
     for _, data in bar:
         bar.set_description("Evaluating {} on {}".format(args.model, args.dataset))
-        gt = _parse_answer(data["answer"])
+        gt = _batch_parse_answers(data["answer"])
         predictions = model.batch_inference(data["question"])
-        parsed_pred = _parse_answer(predictions)
+        parsed_pred = _batch_parse_answers(predictions)
         for x, y in zip(gt, parsed_pred):
             correct_cnt += 1 if x == y else 0
 
