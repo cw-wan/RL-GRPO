@@ -1,33 +1,16 @@
 import argparse
 from tqdm import tqdm
-from datasets import load_dataset
 from models import *
-import re
 
-
-def _load_dataset(name, subset, ratio):
-    return load_dataset(name, subset, split=f"test[:{ratio}%]")
-
+from utils import _load_dataset, _parse_answer
 
 MODELS = {
     "Qwen2.5-0.5B-Instruct": Qwen("Qwen/Qwen2.5-0.5B-Instruct"),
 }
 
 DATASETS = {
-    "GSM8K": lambda ratio: _load_dataset("openai/gsm8k", "main", ratio=ratio),
+    "GSM8K": lambda ratio: _load_dataset("openai/gsm8k", "main", split="test", ratio=ratio),
 }
-
-
-def _parse_answer(ans):
-    pattern = r"\d+(?:/\d+|\.\d+|(?:,\d+)+)?"  # Matches integers, decimals, and fractions
-
-    results = []
-    for text in ans:
-        numbers = re.findall(pattern, text)  # Find all numbers in the text
-        results.append(numbers[-1].replace(",", "") if numbers else None)  # Take the last one as the final result
-
-    return results
-
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
