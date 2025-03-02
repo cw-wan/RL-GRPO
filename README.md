@@ -4,6 +4,8 @@ A final project for CSC_52081_EP - Apprentissage Automatique Avancé et Agents A
 
 ## Guide
 
+First adjust necessary configurations in `config.json`, like the ratio of training set to use.
+
 Train GRPO:
 
 ```shell
