@@ -6,6 +6,8 @@ from utils import _load_dataset, _batch_parse_answers
 
 MODELS = {
     "Qwen2.5-0.5B-Instruct": Qwen("Qwen/Qwen2.5-0.5B-Instruct"),
+    "Qwen2.5-0.5B-Instruct-GRPO": lambda ckpt: Qwen("Qwen/Qwen2.5-0.5B-Instruct", load_checkpoint=True,
+                                                    checkpoint_path=ckpt),
 }
 
 DATASETS = {
@@ -18,10 +20,14 @@ if __name__ == "__main__":
     parser.add_argument("--model", choices=MODELS.keys())
     parser.add_argument("--batch_size", required=False, default=4)
     parser.add_argument("--test_ratio", type=int, required=False, default=10)
+    parser.add_argument("--ckpt", required=False, default="")
 
     args = parser.parse_args()
 
-    model = MODELS[args.model]
+    if not args.ckpt:
+        model = MODELS[args.model]
+    else:
+        model = MODELS[args.model](ckpt=args.ckpt)
     dataset = DATASETS[args.dataset](args.test_ratio)
 
     correct_cnt = 0

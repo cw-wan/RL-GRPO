@@ -22,9 +22,12 @@ Run evaluation:
 
 ### GSM8K
 
-|Model| Solve Rate |
-|-----|------------|
-|Qwen2.5-0.5B-Instruct| 35.61 |
+| Model                       | Solve Rate |
+|-----------------------------|------------|
+| Qwen2.5-0.5B-Instruct       | 35.61      |
+| Qwen2.5-0.5B-Instruct-GRPO* | **36.36**  |
+
+\* Trained for 6000 steps on 30% of training set.
 
 ## Reference
 

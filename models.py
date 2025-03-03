@@ -3,19 +3,32 @@ import torch
 
 
 class Qwen:
-    def __init__(self, model_name):
+    def __init__(self,
+                 model_name,
+                 load_checkpoint=False,
+                 checkpoint_path=None, ):
         self.device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-        self.model = AutoModelForCausalLM.from_pretrained(
-            model_name,
-            torch_dtype="auto",
-            device_map="auto"
-        )
-        self.model.to(self.device)
-        self.tokenizer = AutoTokenizer.from_pretrained(model_name)
+        if not load_checkpoint:
+            self.model = AutoModelForCausalLM.from_pretrained(
+                model_name,
+                torch_dtype="auto",
+                device_map="auto"
+            )
+            self.model.to(self.device)
+            self.tokenizer = AutoTokenizer.from_pretrained(model_name)
+        else:
+            self.model = AutoModelForCausalLM.from_pretrained(
+                checkpoint_path,
+                torch_dtype="auto",
+                device_map="auto"
+            )
+            self.model.to(self.device)
+            self.tokenizer = AutoTokenizer.from_pretrained(checkpoint_path)
 
     def inference(self, p):
         messages = [
-            {"role": "system", "content": "You are Qwen, created by Alibaba Cloud. You are a helpful assistant to solve math problems. Your final answer should be wrapped within \\boxed{}"},
+            {"role": "system",
+             "content": "You are Qwen, created by Alibaba Cloud. You are a helpful assistant to solve math problems. Your final answer should be wrapped within \\boxed{}"},
             {"role": "user", "content": p},
         ]
         text = self.tokenizer.apply_chat_template(
@@ -52,7 +65,8 @@ class Qwen:
 
 
 if __name__ == "__main__":
-    model = Qwen("Qwen/Qwen2.5-0.5B-Instruct")
+    model = Qwen("Qwen2.5-0.5B-Instruct", load_checkpoint=True,
+                 checkpoint_path="Qwen2.5-0.5B-Instruct-GRPO/checkpoint-6000")
     question = "Betty is saving money for a new wallet which costs $100. Betty has only half of the money she needs. Her parents decided to give her $15 for that purpose, and her grandparents twice as much as her parents. How much more money does Betty need to buy the wallet?"
     answer = model.inference(question)
     print(answer)
