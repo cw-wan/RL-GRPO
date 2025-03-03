@@ -18,14 +18,33 @@ Run evaluation:
 ./evaluate.sh
 ```
 
+Evaluation script for Qwen2.5-0.5B-Instruct:
+
+```shell
+python evaluate.py \
+--dataset "GSM8K" \
+--model "Qwen2.5-0.5B-Instruct" \
+--test_ratio 10
+```
+
+Evaluation script for Qwen2.5-0.5B-Instruct-GRPO:
+
+```shell
+python evaluate.py \
+--dataset "GSM8K" \
+--model "Qwen2.5-0.5B-Instruct-GRPO" \
+--test_ratio 10 \
+--ckpt [checkpoint-path]
+```
+
 ## Results
 
 ### GSM8K
 
-| Model                       | Solve Rate |
-|-----------------------------|------------|
-| Qwen2.5-0.5B-Instruct       | 35.61      |
-| Qwen2.5-0.5B-Instruct-GRPO* | **36.36**  |
+| Model                       | Pass@1    |
+|-----------------------------|-----------|
+| Qwen2.5-0.5B-Instruct       | 30.49     |
+| Qwen2.5-0.5B-Instruct-GRPO* | **42.61** |
 
 \* Trained for 6000 steps on 30% of training set.
 

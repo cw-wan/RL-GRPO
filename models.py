@@ -12,7 +12,7 @@ class Qwen:
             self.model = AutoModelForCausalLM.from_pretrained(
                 model_name,
                 torch_dtype="auto",
-                device_map="auto"
+                device_map="auto",
             )
             self.model.to(self.device)
             self.tokenizer = AutoTokenizer.from_pretrained(model_name)
@@ -20,7 +20,7 @@ class Qwen:
             self.model = AutoModelForCausalLM.from_pretrained(
                 checkpoint_path,
                 torch_dtype="auto",
-                device_map="auto"
+                device_map="auto",
             )
             self.model.to(self.device)
             self.tokenizer = AutoTokenizer.from_pretrained(checkpoint_path)
@@ -28,7 +28,7 @@ class Qwen:
     def inference(self, p):
         messages = [
             {"role": "system",
-             "content": "You are Qwen, created by Alibaba Cloud. You are a helpful assistant to solve math problems. Your final answer should be wrapped within \\boxed{}"},
+             "content": "You are Qwen, created by Alibaba Cloud. You are a helpful assistant to solve math problems."},
             {"role": "user", "content": p},
         ]
         text = self.tokenizer.apply_chat_template(
@@ -40,6 +40,8 @@ class Qwen:
         generated_ids = self.model.generate(
             **model_inputs,
             max_new_tokens=512,
+            temperature=0.6,
+            top_p=0.95
         )
         generated_ids = [
             output_ids[len(input_ids):] for input_ids, output_ids in zip(model_inputs.input_ids, generated_ids)
@@ -58,6 +60,8 @@ class Qwen:
         generated_ids_batch = self.model.generate(
             **model_inputs_batch,
             max_new_tokens=512,
+            temperature=0.6,
+            top_p=0.95
         )
         generated_ids_batch = generated_ids_batch[:, model_inputs_batch.input_ids.shape[1]:]
         response_batch = self.tokenizer.batch_decode(generated_ids_batch, skip_special_tokens=True)
