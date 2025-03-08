@@ -1,4 +1,6 @@
 import argparse
+import json
+
 from tqdm import tqdm
 from models import *
 
@@ -42,14 +44,26 @@ if __name__ == "__main__":
         total=total_batches
     )
 
+    cases = []
+
     for _, data in bar:
         bar.set_description("Evaluating {} on {}".format(args.model, args.dataset))
         gt = _batch_parse_answers(data["answer"])
         prediction_samples = []
+        model_answers = []
         for _ in range(args.k):
             predictions = model.batch_inference(data["question"])
+            model_answers.append(predictions)
             parsed_pred = _batch_parse_answers(predictions)
             prediction_samples.append(parsed_pred)
+        for q, a, mas in zip(data["question"], data["answer"], list(zip(*model_answers))):
+            cases.append({
+                "Question": q,
+                "Ground Truth": a,
+                "Model Predictions": mas,
+            })
+            with open(f"{args.model}-cases.json", "w") as f:
+                json.dump(cases, f)
         prediction_samples = list(zip(*prediction_samples))
         for y, x in zip(gt, prediction_samples):
             print(y, x)
