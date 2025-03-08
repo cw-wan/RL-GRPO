@@ -37,16 +37,27 @@ python evaluate.py \
 --ckpt [checkpoint-path]
 ```
 
+Evaluation script for Qwen2.5-0.5B-Instruct-SFT:
+
+```shell
+python evaluate.py \
+--dataset "GSM8K" \
+--model "Qwen2.5-0.5B-Instruct-SFT" \
+--test_ratio 10 \
+--ckpt [checkpoint-path]
+```
+
 ## Results
 
 ### GSM8K
 
 | Model                       | Pass@1    |
 |-----------------------------|-----------|
+| Qwen2.5-0.5B-Instruct-SFT*  | 21.78     |
 | Qwen2.5-0.5B-Instruct       | 30.49     |
 | Qwen2.5-0.5B-Instruct-GRPO* | **42.61** |
 
-\* Trained for 6000 steps on 30% of training set.
+\* Trained on 30% of the training set.
 
 ## Reference
 

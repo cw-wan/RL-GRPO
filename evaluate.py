@@ -8,6 +8,8 @@ MODELS = {
     "Qwen2.5-0.5B-Instruct": Qwen("Qwen/Qwen2.5-0.5B-Instruct"),
     "Qwen2.5-0.5B-Instruct-GRPO": lambda ckpt: Qwen("Qwen/Qwen2.5-0.5B-Instruct", load_checkpoint=True,
                                                     checkpoint_path=ckpt),
+    "Qwen2.5-0.5B-Instruct-SFT": lambda ckpt: Qwen("Qwen/Qwen2.5-0.5B-Instruct", load_checkpoint=True,
+                                                    checkpoint_path=ckpt),
 }
 
 DATASETS = {
