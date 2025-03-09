@@ -12,7 +12,7 @@ Train GRPO:
 accelerate launch train.py
 ```
 
-Set evaluation script:
+Set evaluation script in `evaluation.sh`:
 
 - Evaluation script for Qwen2.5-0.5B-Instruct:
     ```shell
