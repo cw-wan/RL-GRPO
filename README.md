@@ -12,39 +12,36 @@ Train GRPO:
 accelerate launch train.py
 ```
 
+Set evaluation script:
+
+- Evaluation script for Qwen2.5-0.5B-Instruct:
+    ```shell
+    python evaluate.py \
+    --dataset "GSM8K" \
+    --model "Qwen2.5-0.5B-Instruct" \
+    --test_ratio 10
+    ```
+- Evaluation script for Qwen2.5-0.5B-Instruct-GRPO:
+    ```shell
+    python evaluate.py \
+    --dataset "GSM8K" \
+    --model "Qwen2.5-0.5B-Instruct-GRPO" \
+    --test_ratio 10 \
+    --ckpt [checkpoint-path]
+    ```
+- Evaluation script for Qwen2.5-0.5B-Instruct-SFT:
+    ```shell
+    python evaluate.py \
+    --dataset "GSM8K" \
+    --model "Qwen2.5-0.5B-Instruct-SFT" \
+    --test_ratio 10 \
+    --ckpt [checkpoint-path]
+    ```
+
 Run evaluation:
 
 ```shell
 ./evaluate.sh
-```
-
-Evaluation script for Qwen2.5-0.5B-Instruct:
-
-```shell
-python evaluate.py \
---dataset "GSM8K" \
---model "Qwen2.5-0.5B-Instruct" \
---test_ratio 10
-```
-
-Evaluation script for Qwen2.5-0.5B-Instruct-GRPO:
-
-```shell
-python evaluate.py \
---dataset "GSM8K" \
---model "Qwen2.5-0.5B-Instruct-GRPO" \
---test_ratio 10 \
---ckpt [checkpoint-path]
-```
-
-Evaluation script for Qwen2.5-0.5B-Instruct-SFT:
-
-```shell
-python evaluate.py \
---dataset "GSM8K" \
---model "Qwen2.5-0.5B-Instruct-SFT" \
---test_ratio 10 \
---ckpt [checkpoint-path]
 ```
 
 ## Results
