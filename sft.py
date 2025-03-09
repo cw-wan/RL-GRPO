@@ -1,5 +1,5 @@
 from transformers import AutoModelForCausalLM, AutoTokenizer
-from utils import _load_dataset
+from QWen_utils import _load_dataset
 from trl import SFTConfig, SFTTrainer
 
 dataset = _load_dataset("openai/gsm8k", "main", split="train", ratio=30)

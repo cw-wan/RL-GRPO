@@ -1,6 +1,6 @@
 from trl import GRPOConfig, GRPOTrainer
 import json
-from utils import _load_dataset, _batch_parse_answers
+from QWen_utils import _load_dataset, _batch_parse_answers
 
 MODELS = {
     "Qwen2.5-0.5B-Instruct": "Qwen/Qwen2.5-0.5B-Instruct",
@@ -32,7 +32,7 @@ def reward_func(completions, ground_truth, **kwargs):
     return [1.0 if p == g else 0.0 for p, g in zip(pred, gt)]
 
 
-training_args = GRPOConfig(output_dir=f"{config["model"]}-GRPO", logging_steps=10)
+training_args = GRPOConfig(output_dir=f"{config['model']}-GRPO", logging_steps=10)
 trainer = GRPOTrainer(
     model=MODELS[model_name],
     reward_funcs=reward_func,

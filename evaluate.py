@@ -2,9 +2,9 @@ import argparse
 import json
 
 from tqdm import tqdm
-from models import *
+from models_QWen import *
 
-from utils import _load_dataset, _batch_parse_answers
+from QWen_utils import _load_dataset, _batch_parse_answers
 
 MODELS = {
     "Qwen2.5-0.5B-Instruct": Qwen("Qwen/Qwen2.5-0.5B-Instruct"),
