@@ -1,0 +1,36 @@
+  0%|                                                                                                                            | 1/6726 [00:20<38:55:33, 20.84s/it]Traceback (most recent call last):
+  File "/Users/bhgfpmk/BenKyo/Adv_ML/RL-GRPO/train.py", line 44, in <module>
+    trainer.train()
+  File "/opt/anaconda3/envs/GRPO/lib/python3.9/site-packages/transformers/trainer.py", line 2241, in train
+    return inner_training_loop(
+  File "/opt/anaconda3/envs/GRPO/lib/python3.9/site-packages/transformers/trainer.py", line 2548, in _inner_training_loop
+    tr_loss_step = self.training_step(model, inputs, num_items_in_batch)
+  File "/opt/anaconda3/envs/GRPO/lib/python3.9/site-packages/transformers/trainer.py", line 3692, in training_step
+    inputs = self._prepare_inputs(inputs)
+  File "/Users/bhgfpmk/BenKyo/Adv_ML/RL-GRPO/grpo_trainer.py", line 564, in _prepare_inputs
+    prompt_completion_ids = unwrapped_model.generate(
+  File "/opt/anaconda3/envs/GRPO/lib/python3.9/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "/opt/anaconda3/envs/GRPO/lib/python3.9/site-packages/transformers/generation/utils.py", line 2223, in generate
+    result = self._sample(
+  File "/opt/anaconda3/envs/GRPO/lib/python3.9/site-packages/transformers/generation/utils.py", line 3257, in _sample
+    next_tokens = torch.multinomial(probs, num_samples=1).squeeze(1)
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/Users/bhgfpmk/BenKyo/Adv_ML/RL-GRPO/train.py", line 44, in <module>
+    trainer.train()
+  File "/opt/anaconda3/envs/GRPO/lib/python3.9/site-packages/transformers/trainer.py", line 2241, in train
+    return inner_training_loop(
+  File "/opt/anaconda3/envs/GRPO/lib/python3.9/site-packages/transformers/trainer.py", line 2548, in _inner_training_loop
+    tr_loss_step = self.training_step(model, inputs, num_items_in_batch)
+  File "/opt/anaconda3/envs/GRPO/lib/python3.9/site-packages/transformers/trainer.py", line 3692, in training_step
+    inputs = self._prepare_inputs(inputs)
+  File "/Users/bhgfpmk/BenKyo/Adv_ML/RL-GRPO/grpo_trainer.py", line 564, in _prepare_inputs
+    prompt_completion_ids = unwrapped_model.generate(
+  File "/opt/anaconda3/envs/GRPO/lib/python3.9/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "/opt/anaconda3/envs/GRPO/lib/python3.9/site-packages/transformers/generation/utils.py", line 2223, in generate
+    result = self._sample(
+  File "/opt/anaconda3/envs/GRPO/lib/python3.9/site-packages/transformers/generation/utils.py", line 3257, in _sample
+    next_tokens = torch.multinomial(probs, num_samples=1).squeeze(1)
+KeyboardInterrupt

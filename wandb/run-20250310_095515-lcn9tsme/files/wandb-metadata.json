@@ -1,0 +1,44 @@
+{
+  "os": "macOS-15.1.1-arm64-arm-64bit",
+  "python": "CPython 3.9.21",
+  "startedAt": "2025-03-10T01:55:15.918485Z",
+  "program": "/Users/bhgfpmk/BenKyo/Adv_ML/RL-GRPO/train.py",
+  "codePath": "train.py",
+  "git": {
+    "remote": "https://github.com/cw-wan/RL-GRPO",
+    "commit": "076c3d11068d0302553ae5fb592ca0d5e09cb568"
+  },
+  "email": "bhgfpmk@gmail.com",
+  "root": "/Users/bhgfpmk/BenKyo/Adv_ML/RL-GRPO",
+  "host": "BHGFPMKs.local",
+  "executable": "/opt/anaconda3/envs/GRPO/bin/python",
+  "codePathLocal": "train.py",
+  "cpu_count": 12,
+  "cpu_count_logical": 12,
+  "disk": {
+    "/": {
+      "total": "494384795648",
+      "used": "132291354624"
+    },
+    "/System/Volumes/Data": {
+      "total": "494384795648",
+      "used": "132291354624"
+    }
+  },
+  "memory": {
+    "total": "25769803776"
+  },
+  "cpu": {
+    "count": 12,
+    "countLogical": 12
+  },
+  "apple": {
+    "name": "Apple M4 Pro",
+    "ecpuCores": 4,
+    "pcpuCores": 8,
+    "gpuCores": 16,
+    "memoryGb": 24,
+    "swapTotalBytes": "2147483648",
+    "ramTotalBytes": "25769803776"
+  }
+}

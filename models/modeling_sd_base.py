@@ -26,8 +26,12 @@ from diffusers import DDIMScheduler, StableDiffusionPipeline, UNet2DConditionMod
 from diffusers.pipelines.stable_diffusion.pipeline_stable_diffusion import rescale_noise_cfg
 from transformers.utils import is_peft_available
 
-from ..core import randn_tensor
-from .sd_utils import convert_state_dict_to_diffusers
+
+import sys
+import os
+
+from core import randn_tensor
+from sd_utils import convert_state_dict_to_diffusers
 
 
 if is_peft_available():

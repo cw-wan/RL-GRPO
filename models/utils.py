@@ -22,7 +22,7 @@ from accelerate.utils import is_deepspeed_available
 from transformers import PreTrainedModel, PreTrainedTokenizer
 from transformers.utils.deprecation import deprecate_kwarg
 
-from .modeling_value_head import AutoModelForCausalLMWithValueHead, AutoModelForSeq2SeqLMWithValueHead
+from.modeling_value_head import AutoModelForCausalLMWithValueHead, AutoModelForSeq2SeqLMWithValueHead
 
 
 SUPPORTED_ARCHITECTURES = (

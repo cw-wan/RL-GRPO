@@ -1,4 +1,6 @@
-from trl import GRPOConfig, GRPOTrainer
+#from trl import GRPOConfig, GRPOTrainer
+from grpo_config import GRPOConfig
+from grpo_trainer import GRPOTrainer
 import json
 from QWen_utils import _load_dataset, _batch_parse_answers
 

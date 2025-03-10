@@ -1,0 +1,15 @@
+{"time":"2025-03-10T09:55:15.919707+08:00","level":"INFO","msg":"stream: starting","core version":"0.19.8","symlink path":"/Users/bhgfpmk/BenKyo/Adv_ML/RL-GRPO/wandb/run-20250310_095515-lcn9tsme/logs/debug-core.log"}
+{"time":"2025-03-10T09:55:16.028682+08:00","level":"INFO","msg":"created new stream","id":"lcn9tsme"}
+{"time":"2025-03-10T09:55:16.028724+08:00","level":"INFO","msg":"stream: started","id":"lcn9tsme"}
+{"time":"2025-03-10T09:55:16.028733+08:00","level":"INFO","msg":"handler: started","stream_id":"lcn9tsme"}
+{"time":"2025-03-10T09:55:16.028821+08:00","level":"INFO","msg":"sender: started","stream_id":"lcn9tsme"}
+{"time":"2025-03-10T09:55:16.028807+08:00","level":"INFO","msg":"writer: Do: started","stream_id":"lcn9tsme"}
+{"time":"2025-03-10T09:55:16.693893+08:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-03-10T09:55:44.883903+08:00","level":"INFO","msg":"stream: closing","id":"lcn9tsme"}
+{"time":"2025-03-10T09:55:44.884881+08:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-03-10T09:55:44.895031+08:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-03-10T09:55:46.291825+08:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-03-10T09:55:46.854101+08:00","level":"INFO","msg":"handler: closed","stream_id":"lcn9tsme"}
+{"time":"2025-03-10T09:55:46.854112+08:00","level":"INFO","msg":"writer: Close: closed","stream_id":"lcn9tsme"}
+{"time":"2025-03-10T09:55:46.854528+08:00","level":"INFO","msg":"sender: closed","stream_id":"lcn9tsme"}
+{"time":"2025-03-10T09:55:46.854833+08:00","level":"INFO","msg":"stream: closed","id":"lcn9tsme"}
